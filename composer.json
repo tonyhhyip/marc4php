@@ -3,6 +3,11 @@
   "description": "Marc Handle with PHP",
   "minimum-stability": "RC",
   "license": "LGPL-3.0+",
+  "type": "library",
+  "keywords": [
+    "marc",
+    "library"
+  ],
   "version": "0.1-dev",
   "homepage": "https://github.com/tonyhhyip/marc4php",
   "authors": [
@@ -18,9 +23,6 @@
   },
   "require": {
     "php": ">=5.3.1"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "dev-master"
   },
   "autoload": {
     "psr-0": {
