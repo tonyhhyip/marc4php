@@ -1,10 +1,10 @@
 Marc4php
 =======================
-A php library for handling MARC File and MARCXML. For detail of MARC, please see (Library of Congrees) [http://www.loc.gov/marc/].
+A php library for handling MARC File and MARCXML. For detail of MARC, please see [Library of Congrees] (http://www.loc.gov/marc/).
 
 ##Install
 -------------------
-You may install it by (composer)[https://getcomposer.org].
+You may install it by [composer](https://getcomposer.org).
 <code>
 <pre>
 {
