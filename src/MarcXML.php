@@ -20,7 +20,7 @@ namespace Marc;
  * objects from an XML stream or string.
  * @package Marc
  */
-class MarcXML
+class MarcXML extends MarcBase
 {
 
 	/**
