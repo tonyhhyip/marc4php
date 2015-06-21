@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * marc4php
+ *
+ * PHP version 5
+ *
+ * Copyright (C) Tony Yip 2015.
+ *
+ * @category Guardian
+ * @author   Tony Yip <tony@opensource.hk>
+ */
+
+
 namespace Marc;
 
 /**
@@ -8,7 +20,8 @@ namespace Marc;
  * objects from an XML stream or string.
  * @package Marc
  */
-class MarcXML {
+class MarcXML
+{
 
 	/**
 	 * Source containing raw records
@@ -42,7 +55,8 @@ class MarcXML {
 	 * @param string $ns        URI or prefix of the namespace
 	 * @param bool   $prefix TRUE if $ns is a prefix, FALSE if it's a URI; defaults to FALSE
 	 */
-	public function __construct($source, $type = MarcBase::SOURCE_FILE, $ns = '', $prefix = false) {
+	public function __construct($source, $type = MarcBase::SOURCE_FILE, $ns = '', $prefix = false)
+	{
 		if (in_array($type, array(MarcBase::SOURCE_FILE, MarcBase::SOURCE_STRING)))
 			$this->type = $type;
 		else
@@ -63,7 +77,8 @@ class MarcXML {
 	/**
 	 * {@inheritdoc}
 	 */
-	public function next() {
+	public function next()
+	{
 		if (isset($this->source->record[$this->counter])) {
 			$record = $this->source->record[$this->counter++];
 		} elseif ($this->source->getName() == "record" && $this->counter == 0) {
@@ -87,7 +102,8 @@ class MarcXML {
 	 *
 	 * @return MarcRecord Decoded File_MARC_Record object
 	 */
-	private function decode($text) {
+	private function decode($text)
+	{
 		$marc = new MarcRecord($this);
 
 		// Store leader

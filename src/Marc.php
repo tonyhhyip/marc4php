@@ -1,5 +1,16 @@
 <?php
 
+/**
+ * marc4php
+ *
+ * PHP version 5
+ *
+ * Copyright (C) Tony Yip 2015.
+ *
+ * @category Guardian
+ * @author   Tony Yip <tony@opensource.hk>
+ */
+
 namespace Marc;
 
 /**
@@ -8,7 +19,8 @@ namespace Marc;
  * objects from a stream or string.
  * @package Marc
  */
-class Marc extends MarcBase {
+class Marc extends MarcBase
+{
 
 	/**
 	 * Hexadecimal value for Subfield indicator
@@ -63,7 +75,8 @@ class Marc extends MarcBase {
 	 * @param string $source Name of the file, or a raw MARC string
 	 * @param int    $type   Source of the input, either SOURCE_FILE or SOURCE_STRING
 	 */
-	public function __construct($source, $type = MarcBase::SOURCE_FILE) {
+	public function __construct($source, $type = MarcBase::SOURCE_FILE)
+	{
 
 		if (in_array($type, array(MarcBase::SOURCE_FILE, MarcBase::SOURCE_STRING)))
 			$this->type = $type;
@@ -93,7 +106,8 @@ class Marc extends MarcBase {
 	 *
 	 * @return string Either a raw record or null
 	 */
-	public function nextRaw() {
+	public function nextRaw()
+	{
 		if (MarcBase::SOURCE_FILE === $this->type) {
 			$record = stream_get_line($this->source, Marc::MAX_RECORD_LENGTH, Marc::END_OF_RECORD);
 
@@ -112,7 +126,8 @@ class Marc extends MarcBase {
 	/**
 	 * {@inheritdoc}
 	 */
-	public function nextRecord(){
+	public function nextRecord()
+	{
 		if ($raw = $this->nextRaw())
 			$this->decode($raw);
 		else
@@ -128,7 +143,8 @@ class Marc extends MarcBase {
 	 *
 	 * @return MarcRecord MarcRecord object
 	 */
-	private function decode($text) {
+	private function decode($text)
+	{
 		$marc = new MarcRecord($this);
 
 		// fallback on the actual byte length
@@ -177,9 +193,9 @@ class Marc extends MarcBase {
 		$nfields = strlen($dir) / Marc::DIRECTORY_ENTRY_LEN;
 		for ($n = 0; $n  < $nfields; $n++) {
 			// As pack returns to key 1, leave place 0 in list empty
-			list($_, $tag) = unpack("A3", substr($dir, $n * Marc::DIRECTORY_ENTRY_LEN, Marc::DIRECTORY_ENTRY_LEN));
-			list($_, $len) = unpack("A3/A4", substr($dir, $n * Marc::DIRECTORY_ENTRY_LEN, Marc::DIRECTORY_ENTRY_LEN));
-			list($_, $offset) = unpack("A3/A4/A5", substr($dir, $n * Marc::DIRECTORY_ENTRY_LEN, Marc::DIRECTORY_ENTRY_LEN));
+			list(, $tag) = unpack("A3", substr($dir, $n * Marc::DIRECTORY_ENTRY_LEN, Marc::DIRECTORY_ENTRY_LEN));
+			list(, $len) = unpack("A3/A4", substr($dir, $n * Marc::DIRECTORY_ENTRY_LEN, Marc::DIRECTORY_ENTRY_LEN));
+			list(, $offset) = unpack("A3/A4/A5", substr($dir, $n * Marc::DIRECTORY_ENTRY_LEN, Marc::DIRECTORY_ENTRY_LEN));
 
 			// Check directory validity
 			if (!preg_match("/^[0-9A-Za-z]{3}$/", $tag)) {

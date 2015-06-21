@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * marc4php
+ *
+ * PHP version 5
+ *
+ * Copyright (C) Tony Yip 2015.
+ *
+ * @category Guardian
+ * @author   Tony Yip <tony@opensource.hk>
+ */
+
+
 namespace Marc;
 
 /**
@@ -43,7 +55,8 @@ class MarcSubfield {
 	 * @param string $code Subfield code
 	 * @param string $data Subfield data
 	 */
-	public function __construct($code, $data) {
+	public function __construct($code, $data)
+	{
 		$this->code = $code;
 		$this->data = $data;
 	}
@@ -51,7 +64,8 @@ class MarcSubfield {
 	/**
 	 * Destroys the subfield
 	 */
-	public function __destruct() {
+	public function __destruct()
+	{
 		$this->code = null;
 		$this->data = null;
 		$this->position = null;
@@ -62,7 +76,8 @@ class MarcSubfield {
 	 *
 	 * @return true
 	 */
-	public function delete() {
+	public function delete()
+	{
 		$this->__destruct();
 	}
 
@@ -71,7 +86,8 @@ class MarcSubfield {
 	 *
 	 * @return string Tag name
 	 */
-	public function getCode() {
+	public function getCode()
+	{
 		return (string)$this->code;
 	}
 
@@ -80,7 +96,8 @@ class MarcSubfield {
 	 *
 	 * @return string data
 	 */
-	public function getData() {
+	public function getData()
+	{
 		return (string)$this->data;
 	}
 
@@ -89,7 +106,8 @@ class MarcSubfield {
 	 *
 	 * @return int data
 	 */
-	public function getPosition() {
+	public function getPosition()
+	{
 		return $this->position;
 	}
 
@@ -98,7 +116,8 @@ class MarcSubfield {
 	 *
 	 * @return string String representation
 	 */
-	public function __toString() {
+	public function __toString()
+	{
 		return '[' . $this->getCode() . ']: ' . $this->getData();
 	}
 
@@ -107,7 +126,8 @@ class MarcSubfield {
 	 *
 	 * @return string USMARC representation
 	 */
-	public function toRaw()	{
+	public function toRaw()
+	{
 		$result = Marc::SUBFIELD_INDICATOR . $this->getCode() . $this->getData();
 		return (string)$result;
 	}
@@ -117,7 +137,8 @@ class MarcSubfield {
 	 *
 	 * @param string $code new code for the subfield
 	 */
-	public function setCode($code) {
+	public function setCode($code)
+	{
 		if ($code) {
 			// could check more stringently; m/[a-Z]/ or the likes
 			$this->code = $code;
@@ -129,7 +150,8 @@ class MarcSubfield {
 	 *
 	 * @param string $data new data for the subfield
 	 */
-	public function setData($data)	{
+	public function setData($data)
+	{
 		$this->data = $data;
 	}
 	// }}}
@@ -140,7 +162,8 @@ class MarcSubfield {
 	 *
 	 * @param string $pos new position of the subfield
 	 */
-	public function setPosition($pos) {
+	public function setPosition($pos)
+	{
 		$this->position = $pos;
 	}
 
@@ -149,7 +172,8 @@ class MarcSubfield {
 	 *
 	 * @return bool True or false
 	 */
-	public function isEmpty() {
+	public function isEmpty()
+	{
 		return strlen($this->data) !== 0;
 	}
 }
