@@ -254,7 +254,7 @@ class MarcRecord {
 	 * @return MarcList|array {@link MarcDataField} or
 	 * {@link MarcControlField} objects that match the requested tag name
 	 */
-	function getFields($spec = null, $pcre = null) {
+	public function getFields($spec = null, $pcre = null) {
 		if (!$spec) {
 			return $this->fields;
 		}
