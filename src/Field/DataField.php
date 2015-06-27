@@ -299,12 +299,10 @@ final class DataField extends Field
 	 */
 	public function getSubfields($code = null)
 	{
-		if ($code === null)
-			return null;
 		$results = array();
 
 		foreach ($this->subfields as $sf) {
-			if ($sf->getCode() === $code)
+			if ($sf->getCode() === $code || is_null($code))
 				$results[] = $sf;
 		}
 
