@@ -19,7 +19,7 @@ class DataField implements Field
     /**
      * @var array
      */
-    private $subFields = [];
+    private $subField = [];
 
     /**
      * @param string $tag
@@ -127,10 +127,27 @@ class DataField implements Field
         call_user_func([$this, $method], $value);
     }
 
+    /**
+     * @param SubField $subField
+     */
     public function addSubField(SubField $subField)
     {
-        if (!in_array($subField, $this->subFields))
-            $this->subFields[] = $subField;
+        $this->subField[$subField->getCode()] = $subField;
+    }
+
+    /**
+     * @param string $code
+     *
+     * @return SubField|null
+     */
+    public function getSubField($code)
+    {
+        return isset($this->subField[$code]) ? $this->subField[$code] : null;
+    }
+
+    public function getSubFields()
+    {
+        return $this->subField;
     }
 
 }

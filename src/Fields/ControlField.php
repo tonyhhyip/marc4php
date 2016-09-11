@@ -6,7 +6,15 @@ use Marc\Field;
 
 class ControlField implements Field
 {
+    /**
+     * @var string
+     */
     private $tag;
+
+    /**
+     * @var string
+     */
+    private $content;
 
     /**
      * ControlField constructor.
@@ -17,6 +25,7 @@ class ControlField implements Field
     public function __construct($tag, $content)
     {
         $this->setTag($tag);
+        $this->setContent($content);
     }
 
     /**
@@ -33,5 +42,21 @@ class ControlField implements Field
     public function getTag()
     {
         return $this->tag;
+    }
+
+    /**
+     * @param string $content
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
     }
 }
