@@ -34,7 +34,10 @@ class MarcXMLWriter extends AbstractWriter
      */
     public function toString()
     {
-        return $this->writer->write(static::nameElement('collection'), $this->collection);
+        return (
+            '<?xml version="1.0" encoding="UTF-8"?>' .
+            $this->writer->write(static::nameElement('collection'), $this->collection)
+        );
     }
 
     private function configWriter()
