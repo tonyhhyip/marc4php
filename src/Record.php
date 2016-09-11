@@ -106,18 +106,20 @@ class Record
     /**
      * @param DataField $data
      */
-    public function setDataField(DataField $data)
+    public function addDataField(DataField $data)
     {
-        $tag = $data->getTag();
-        $this->data[$tag] = $data;
+        $this->data[] = $data;
     }
 
     /**
-     * @param string $code
      * @return array
      */
-    public function getDataField($code)
+    public function toArray()
     {
-        return $this->data[$code];
+        return [
+            'leader' => $this->leader,
+            'controlfield' => $this->controls,
+            'datafield' => $this->data,
+        ];
     }
 }

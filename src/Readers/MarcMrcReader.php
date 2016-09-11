@@ -46,7 +46,7 @@ class MarcMrcReader implements Reader
                 if ($field instanceof \File_MARC_Control_Field) {
                     $record->setControlField($this->convertControlField($field));
                 } elseif ($field instanceof \File_MARC_Data_Field) {
-                    $record->setDataField($this->convertDataField($field));
+                    $record->addDataField($this->convertDataField($field));
                 } else {
                     throw new \InvalidArgumentException('Unknown Field Type');
                 }
