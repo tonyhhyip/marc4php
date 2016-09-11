@@ -17,4 +17,11 @@ class MarcXMLReaderTest extends \PHPUnit_Framework_TestCase
         $record = $records[0];
         $this->assertInstanceOf('Marc\Record', $record);
     }
+
+    public function testOneRecord()
+    {
+        $reader = new MarcXMLReader();
+        $result = $reader->loadFile(__DIR__ . '/../samples/onerecord.xml');
+        $this->assertInstanceOf('Marc\Collection', $result);
+    }
 }

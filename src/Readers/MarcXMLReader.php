@@ -39,7 +39,13 @@ class MarcXMLReader implements Reader
      */
     public function parse($data)
     {
-        return $this->reader->parse($data);
+        $result = $this->reader->parse($data);
+        if ($result instanceof Collection) {
+            return $result;
+        }
+
+        $record = new Record($result['leader'], $result['control'], $result['data']);
+        return new Collection([$record]);
     }
 
     private function configElementMap()
