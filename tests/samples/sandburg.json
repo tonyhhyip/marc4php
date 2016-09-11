@@ -1,0 +1,139 @@
+{
+  "leader": "01142cam  2200301 a 4500",
+  "controlfield": [
+    {"tag": "001", "data": "   92005291 "},
+    {"tag": "003", "data": "DLC"},
+    {"tag": "005", "data": "19930521155141.9"},
+    {"tag": "008", "data": "920219s1993    caua   j      000 0 eng  "}
+  ],
+  "datafield": [
+    {
+      "tag": "010", "ind": "  ",
+      "subfield": [
+        {"code": "a", "data": "   92005291 "}
+      ]
+    },
+    {
+      "tag": "020", "ind": "  ",
+      "subfield": [
+        {"code": "a", "data": "0152038655 :"},
+        {"code": "c", "data": "$15.95"}
+      ]
+    },
+    {
+      "tag": "040", "ind": "  ",
+      "subfield": [
+        {"code": "a", "data": "DLC"},
+        {"code": "c", "data": "DLC"},
+        {"code": "d", "data": "DLC"}
+      ]
+    },
+    {
+      "tag": "042", "ind": "  ",
+      "subfield": [
+        {"code": "a", "data": "lcac"}
+      ]
+    },
+    {
+      "tag": "050", "ind": "00",
+      "subfield": [
+        {"code": "a", "data": "PS3537.A618"},
+        {"code": "b", "data": "A88 1993"}
+      ]
+    },
+    {
+      "tag": "082", "ind": "00",
+      "subfield": [
+        {"code": "a", "data": "811/.52"},
+        {"code": "2", "data": "20"}
+      ]
+    },
+    {
+      "tag": "100", "ind": "1 ",
+      "subfield": [
+        {"code": "a", "data": "Sandburg, Carl,"},
+        {"code": "d", "data": "1878-1967."}
+      ]
+    },
+    {
+      "tag": "245", "ind": "10",
+      "subfield": [
+        {"code": "a", "data": "Arithmetic /"},
+        {"code": "c", "data": "Carl Sandburg ; illustrated as an anamorphic adventure by Ted Rand."}
+      ]
+    },
+    {
+      "tag": "250", "ind": "  ",
+      "subfield": [
+        {"code": "a", "data": "1st ed."}
+      ]
+    },
+    {
+      "tag": "260", "ind": "  ",
+      "subfield": [
+        {"code": "a", "data": "San Diego :"},
+        {"code": "b", "data": "Harcourt Brace Jovanovich,"},
+        {"code": "c", "data": "c1993."}
+      ]
+    },
+    {
+      "tag": "300", "ind": "  ",
+      "subfield": [
+        {"code": "a", "data": "1 v. (unpaged) :"},
+        {"code": "b", "data": "ill. (some col.) ;"},
+        {"code": "c", "data": "26 cm."}
+      ]
+    },
+    {
+      "tag": "500", "ind": "  ",
+      "subfield": [
+        {"code": "a", "data": "One Mylar sheet included in pocket."}
+      ]
+    },
+    {
+      "tag": "520", "ind": "  ",
+      "subfield": [
+        {"code": "a", "data": " poem about numbers and their characteristics. Features anamorphic, or distorted, drawings which can be restored to normal by viewing from a particular angle or by viewing the image's reflection in the provided Mylar cone."}
+      ]
+    },
+    {
+      "tag": "650", "ind": " 0",
+      "subfield": [
+        {"code": "a", "data": "Arithmetic"},
+        {"code": "x", "data": "Juvenile poetry."}
+      ]
+    },
+    {
+      "tag": "650", "ind": " 0",
+      "subfield": [
+        {"code": "a", "data": "Children's poetry, American."}
+      ]
+    },
+    {
+      "tag": "650", "ind": " 1",
+      "subfield": [
+        {"code": "a", "data": "Arithmetic"},
+        {"code": "x", "data": "Poetry."}
+      ]
+    },
+    {
+      "tag": "650", "ind": " 1",
+      "subfield": [
+        {"code": "a", "data": "American poetry."}
+      ]
+    },
+    {
+      "tag": "650", "ind": " 1",
+      "subfield": [
+        {"code": "a", "data": "Visual perception."}
+      ]
+    },
+    {
+      "tag": "700", "ind": "1 ",
+      "subfield": [
+        {"code": "a", "data": "Rand, Ted,"},
+        {"code": "e", "data": "ill."}
+      ]
+    }
+  ]
+}
