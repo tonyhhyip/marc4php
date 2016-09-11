@@ -129,7 +129,8 @@ class DataField implements Field
 
     public function addSubField(SubField $subField)
     {
-        $this->subFields[$subField->getCode()] = $subField;
+        if (!in_array($subField, $this->subFields))
+            $this->subFields[] = $subField;
     }
 
 }
