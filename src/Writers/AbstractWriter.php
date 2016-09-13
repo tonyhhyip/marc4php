@@ -28,4 +28,9 @@ abstract class AbstractWriter implements Writer
     {
         file_put_contents($file, $this->toString());
     }
+
+    public function __toString()
+    {
+        return $this->toString();
+    }
 }
