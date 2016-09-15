@@ -6,19 +6,23 @@ namespace Marc\Readers;
 use Sabre\Xml\Service;
 use Sabre\Xml\Reader as XMLReader;
 use Marc\Collection;
-use Marc\Reader;
 use Marc\Record;
 use Marc\Fields\ControlField;
 use Marc\Fields\DataField;
 use Marc\Fields\SubField;
 
-class MarcXMLReader implements Reader
+class MarcXMLReader extends AbstractReader
 {
     /**
      * @var Service
      */
     private $reader;
 
+    /**
+     * MarcXMLReader constructor.
+     *
+     * @param Service|null $service
+     */
     public function __construct(Service $service = null)
     {
         $this->reader = $service ?: new Service();
@@ -28,18 +32,14 @@ class MarcXMLReader implements Reader
     /**
      * @inheritdoc
      */
-    public function loadFile($file)
-    {
-        $fp = fopen($file, 'r');
-        return $this->parse($fp);
-    }
-
-    /**
-     * @inheritdoc
-     */
     public function parse($data)
     {
-        $result = $this->reader->parse($data);
+        $reader = $this->reader->getReader();
+        $reader->xml($data);
+        $valid = $reader->setSchema(__DIR__ . '/../../schema/MARC21slim.xsd');
+        if (!$valid)
+            throw new \InvalidArgumentException('Incorrect Schema');
+        $result = $reader->parse($data)['value'];
         if ($result instanceof Collection) {
             return $result;
         }
