@@ -122,4 +122,19 @@ class Record
             'datafield' => $this->data,
         ];
     }
+
+    public function setLeaderLength($recordLength, $baseAddress)
+    {
+        $leader = $this->getLeader();
+        $leader = substr_replace($leader, sprintf("%05d", $recordLength), 0, 5);
+        $leader = substr_replace($leader, sprintf("%05d", $baseAddress), \File_MARC::DIRECTORY_ENTRY_LEN, 5);
+        $leader = substr_replace($leader, '22', 10, 2);
+        $leader = substr_replace($leader, '4500', 20, 4);
+
+        if (strlen($leader) > \File_MARC::LEADER_LEN) {
+            $leader = substr($leader, 0, \File_MARC::LEADER_LEN);
+        }
+
+        $this->setLeader($leader);
+    }
 }
