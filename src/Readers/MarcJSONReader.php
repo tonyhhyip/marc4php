@@ -6,19 +6,10 @@ use Marc\Collection;
 use Marc\Fields\ControlField;
 use Marc\Fields\DataField;
 use Marc\Fields\SubField;
-use Marc\Reader;
 use Marc\Record;
 
-class MarcJSONReader implements Reader
+class MarcJSONReader extends AbstractReader
 {
-    /**
-     * @inheritdoc
-     */
-    public function loadFile($file)
-    {
-        $content = file_get_contents($file);
-        return $this->parse($content);
-    }
 
     public function parse($data)
     {
